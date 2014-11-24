@@ -1,0 +1,29 @@
+{
+  "name": "kindleNotes",
+  "version": "0.0.1",
+  "description": "Fetch recent activities of your kindle",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zhiyelee/kindleNotes.git"
+  },
+  "keywords": [
+    "kindle",
+    "recent",
+    "activity",
+    "mongodb"
+  ],
+  "author": "zhiyelee <http://zhiye.li>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhiyelee/kindleNotes/issues"
+  },
+  "homepage": "https://github.com/zhiyelee/kindleNotes",
+  "dependencies": {
+    "mongodb": "^1.4.22",
+    "mongoose": "^3.8.19"
+  }
+}
