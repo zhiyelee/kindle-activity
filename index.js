@@ -63,7 +63,6 @@ spooky.on('error', function (e, stack) {
 
 spooky.on('data', function (data) {
   save2db(data);
-  console.log('destro');
 });
 spooky.on('exit', function () {
   console.log('process exited');
