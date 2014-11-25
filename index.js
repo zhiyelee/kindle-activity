@@ -1,53 +1,94 @@
-var casper = require('casper').create({
-    verbose: true,
-    logLevel: "debug",
-    clientScripts: ["jquery.min.js"]
-});
+var ActivityModel = require('./lib/activityModel');
 var entryList = [];
-casper.start('https://kindle.amazon.com/profile/zhiyelee/11533613');
+var Spooky = require('spooky');
 
-casper.then(function () {
-    entryList = this.evaluate(getEntry);
-    this.capture('google.png', undefined, {
-        quality: 75
+var spooky = new Spooky({
+    child: {
+        transport: 'http'
+    },
+    casper: {
+        logLevel: 'debug',
+        verbose: true,
+        clientScripts: ["jquery.min.js"]
+    }
+}, function (err) {
+    if (err) {
+        console.log(err)
+    }
+    spooky.start('https://kindle.amazon.com/profile/zhiyelee/11533613');
+
+    spooky.then(function () {
+        entryList = this.evaluate(function () {
+            var arr = [];
+
+            $('.recentActivityEntry').each(function () {
+                var id = $(this).attr('id');
+                var info = [];
+                info.push(id);
+
+                var href = $('a:first-child', this).attr('href')
+                info.push(href);
+
+                var ndContent = $('.sampleHighlight', this);
+                var content = $('div:first-child', ndContent).text();
+                info.push(content);
+                var note = $('.sampleNote', ndContent).text();
+                info.push(note);
+
+                arr.push(info);
+            });
+
+            return arr
+        });
+        this.capture('google.png', undefined, {
+            quality: 75
+        });
     });
-});
 
 
-casper.run(function () {
-    entryList.forEach(function (e) {
-        save2db(e);
-    })
-    this.exit(0);
+    spooky.run(function () {
+        var instance = this;
+        entryList.forEach(function (e) {
+            instance.emit('data', e)
+        });
+        instance.exit(0);
+    });
+
 });
+spooky.on('error', function (e, stack) {
+    console.error(e);
+
+    if (stack) {
+        console.log(stack);
+    }
+});
+
+spooky.on('data', function (data) {
+    save2db(data)
+});
+
 
 function save2db(e) {
-    console.log('id ' + e[0] + '--')
-    console.log('url ' + e[1])
-    console.log('content ' + e[2])
-    console.log('note ' + e[3])
+    var activity = new ActivityModel({
+        uid: e[0],
+        url: e[1],
+        content: e[2],
+        note: e[3]
+    });
 
+    // is this needed? mongodb objectid
+    // The ObjectId is generated based on timestamp, machine ID, process ID, and a process-local incremental counter.
+    ActivityModel.findOne({uid: e[0]}, function (err, item) {
+        if (err) {
+            console.log(err)
+            return;
+        }
+        if (!item) {
+            activity.save(function (err) {
+                if (err) return console.error(err);
+                console.log('item inserted.')
+            });
+        }
+    });
 }
 
-function getEntry () {
-    var arr = [];
-
-    $('.recentActivityEntry').each(function () {
-        var id = $(this).attr('id');
-        var info = [];
-        info.push(id);
-
-        var href = $('a:first-child', this).attr('href')
-        info.push(href);
-
-        var ndContent = $('.sampleHighlight', this);
-        var content = $('div:first-child', ndContent).text();
-        info.push(content);
-        var note = $('.sampleNote', ndContent).text();
-        info.push(note);
-
-        arr.push(info);
-    })
-
-    return arr
-}
