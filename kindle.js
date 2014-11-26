@@ -16,21 +16,10 @@ casper.then(function () {
 
 
 casper.run(function () {
-    entryList.forEach(function (e) {
-        save2db(e);
-    })
     var fs = require('fs');
     fs.write('data.json', JSON.stringify(entryList, null, 4), 'w+');
     this.exit(0);
 });
-
-function save2db(e) {
-    console.log('id ' + e[0] + '--')
-    console.log('url ' + e[1])
-    console.log('content ' + e[2])
-    console.log('note ' + e[3])
-
-}
 
 function getEntry () {
     var arr = [];
