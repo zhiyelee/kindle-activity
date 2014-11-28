@@ -25,6 +25,7 @@
   "dependencies": {
     "mongodb": "^1.4.22",
     "mongoose": "^3.8.19",
+    "q": "^1.1.2",
     "spooky": "^0.2.5"
   }
 }
