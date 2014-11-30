@@ -16,16 +16,20 @@ lastestItem.then(function (item) {
 
   fs.writeFileSync(dataFile, '');
 
-  exec(cmd, function (err) {
+  exec(cmd, function (err, stdout) {
     if (err) console.log(err);
+    console.log(stdout);
 
     var data = fs.readFileSync(dataFile, 'utf8');
 
     if(data) {
       var entryList = JSON.parse(data);
-      util.save2db(entryList);
+      util.save2db(entryList, function () {
+        util.disconnectDB();
+      });
+    } else {
+      util.disconnectDB()
     }
 
-    util.disconnectDB()
   });
 });
