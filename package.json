@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/zhiyelee/kindleNotes",
   "dependencies": {
+    "koa": "^0.13.0",
+    "koa-route": "^2.4.0",
     "mongodb": "^1.4.22",
     "mongoose": "^3.8.19",
     "q": "^1.1.2",
