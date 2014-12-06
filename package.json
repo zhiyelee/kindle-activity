@@ -4,7 +4,11 @@
   "description": "Fetch recent activities of your kindle",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --harmony --harmony_generators app.js"
+  },
+  "engines": {
+    "node": "^0.11.12"
   },
   "repository": {
     "type": "git",
@@ -23,11 +27,14 @@
   },
   "homepage": "https://github.com/zhiyelee/kindleNotes",
   "dependencies": {
+    "co-views": "^0.2.0",
     "koa": "^0.13.0",
     "koa-route": "^2.4.0",
+    "koa-static": "^1.4.7",
     "mongodb": "^1.4.22",
     "mongoose": "^3.8.19",
     "q": "^1.1.2",
-    "spooky": "^0.2.5"
+    "spooky": "^0.2.5",
+    "swig": "^1.4.2"
   }
 }
