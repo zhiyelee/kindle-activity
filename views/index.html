@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Your Kindle Activity</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+<div class="container">
+    <div class="item-list clearfix">
+        {% for index, item in items %}
+            {% set cls = index%2 ? "odd" : "even" %}
+            <article class="item {% if index%2 %}pull-right{% else %}pull-left{% endif %}">
+                <div class="item-content">
+                    {{item.content}}
+                </div>
+                <footer>
+                    <a class="link" href="/{{item.uid}}"> >></a>
+                </footer>
+            </article>
+        {% endfor %}
+    </div>
+
+    <footer class="footer">
+        &copy; <a href="http://zhy.li" target="_blank">zhiyelee</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

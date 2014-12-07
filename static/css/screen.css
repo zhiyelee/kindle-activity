@@ -73,3 +73,10 @@ body {
     color: #118730;
     font-weight: bold;
 }
+
+.item-list .item {
+    float: left;
+    width: 48%;
+    font-size: 18px;
+    margin: 0 0 1em;
+}

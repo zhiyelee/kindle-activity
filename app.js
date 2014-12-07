@@ -22,10 +22,21 @@ app.use(function *(next) {
 });
 app.use(serveStatic('static'));
 app.use(kr.get('/', function *() {
-  this.body = 'index';
+  var items = yield util.getItems(2);
+  // TODO 404 page
+  if (typeof items !== 'object') {
+    this.body = items;
+    return;
+  }
+  // TODO /page/2
+  // render html
+  var res = yield views('index', {
+    items: items
+  });
+  this.body = res;
 }));
 app.use(kr.get('/:id', function *(id) {
-  var item = yield util.getActivity(id);
+  var item = yield util.getItem(id);
   // TODO 404 page
   if (typeof item !== 'object') {
     this.body = item;
@@ -33,7 +44,7 @@ app.use(kr.get('/:id', function *(id) {
   }
 
   // render html
-  var res = yield views('layout', {
+  var res = yield views('item', {
     title: id,
     item: item
   });
