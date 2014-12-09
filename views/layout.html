@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset='utf-8'>
+    <title>{% block title %}My Site{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/screen.css">
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <h1>Zhiye Li's <a class="text-logo" href="/">Kindle Activity</a></h1>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+        &copy; <a href="http://zhy.li" target="_blank">zhiyelee</a> build with KOA and Mongodb
+        <span class="gh">
+            <iframe src="http://ghbtns.com/github-btn.html?user=zhiyelee&repo=kindle-activity&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
+        </span>
+    </footer>
+</div>
+</body>
+</html>
