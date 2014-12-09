@@ -25,6 +25,16 @@
         {% endfor %}
     </div>
 
+    <div class="page-nav clearfix">
+        {% if pre %}
+            <a class="btn btn-lg btn-success pull-left" href="/page/{{pre}}"><< Pre</a>
+        {% endif %}
+
+        {% if next %}
+            <a class="btn btn-lg btn-success pull-right" href="/page/{{next}}">Next >></a>
+    </div>
+        {% endif %}
+
     <footer class="footer">
         &copy; <a href="http://zhy.li" target="_blank">zhiyelee</a> build with KOA and Mongodb
         <span class="gh">

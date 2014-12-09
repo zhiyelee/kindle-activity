@@ -68,6 +68,7 @@ body {
     font-weight: bold;
 }
 
+/*item-list*/
 .item-list {
     -webkit-column-count: 3;
     -moz-column-count: 3;
@@ -80,9 +81,24 @@ body {
     display: inline-block;
 }
 
+@media screen and (max-width: 768px) {
+    .item-list {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+
+/*page footer*/
 .footer .gh {
     display: inline-block;
     vertical-align: top;
     margin-left: 1em;
+}
+
+/*pagenavbar*/
+.page-nav a {
+    width: 20%;
+    min-width: 6em;
 }
 
