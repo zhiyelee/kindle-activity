@@ -21,9 +21,29 @@ app.use(function *(next) {
   console.log('%s %s - %s', this.method, this.url, ms);
 });
 app.use(serveStatic('static'));
+
+// index
 app.use(kr.get('/', function *() {
-  var items = yield util.getItems(2);
+  var items = yield util.getItems();
   // TODO 404 page
+  if (typeof items !== 'object') {
+    this.body = items;
+    return;
+  }
+
+  // render html
+  var res = yield views('index', {
+    items: util.tailorItems(items, 150)
+  });
+  this.body = res;
+}));
+
+// page page
+app.use(kr.get('/page/:num', function *(num) {
+  if (!/^\d*$/.test(num)) return;
+
+  num = parseInt(num, 10);
+  var items = yield util.getItems(num);
   if (typeof items !== 'object') {
     this.body = items;
     return;
@@ -31,10 +51,12 @@ app.use(kr.get('/', function *() {
   // TODO /page/2
   // render html
   var res = yield views('index', {
-    items: items
+    items: util.tailorItems(items, 150)
   });
   this.body = res;
 }));
+
+// item page
 app.use(kr.get('/:id', function *(id) {
   var item = yield util.getItem(id);
   // TODO 404 page

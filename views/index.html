@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="/css/screen.css">
 </head>
 <body>
 <div class="container">
-    <div class="item-list clearfix">
+    <div class="item-list">
         {% for index, item in items %}
             {% set cls = index%2 ? "odd" : "even" %}
-            <article class="item {% if index%2 %}pull-right{% else %}pull-left{% endif %}">
+            <article class="item">
                 <div class="item-content">
                     {{item.content}}
                 </div>
@@ -26,7 +26,10 @@
     </div>
 
     <footer class="footer">
-        &copy; <a href="http://zhy.li" target="_blank">zhiyelee</a></p>
+        &copy; <a href="http://zhy.li" target="_blank">zhiyelee</a> build with KOA and Mongodb
+        <span class="gh">
+            <iframe src="http://ghbtns.com/github-btn.html?user=zhiyelee&repo=kindle-activity&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
+        </span>
     </footer>
 </div>
 
