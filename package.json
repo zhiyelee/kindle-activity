@@ -28,6 +28,7 @@
   "homepage": "https://github.com/zhiyelee/kindleNotes",
   "dependencies": {
     "co-views": "^0.2.0",
+    "js-yaml": "^3.2.3",
     "koa": "^0.13.0",
     "koa-route": "^2.4.0",
     "koa-static": "^1.4.7",

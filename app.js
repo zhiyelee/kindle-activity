@@ -1,6 +1,7 @@
 var koa = require('koa');
 var app = koa();
 var router = require('./lib/router');
+var config = require('./lib/util').loadConfig();
 
 // x-response-time
 app.use(function *(next) {
@@ -18,4 +19,4 @@ app.use(function *(next) {
 });
 router.init(app);
 
-app.listen(3000);
+app.listen(config.port);
