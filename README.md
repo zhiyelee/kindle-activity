@@ -1,15 +1,17 @@
 KA - kindle-activity
 ===========
 
-Fetch and display kindle Recent Activity from the kindle profile page, like [Zhiyelee's Profile page](https://kindle.amazon.com/profile/zhiyelee/11533613)
+Fetch and Display the kindle Recent Activity from the kindle profile page, like [Zhiyelee's Profile page](https://kindle.amazon.com/profile/zhiyelee/11533613)
 
 ## Installation
 
 ### Requirements
 
-To deploy KA, you must install [Mongodb](http://www.mongodb.org/) firstly. In case you have not install it,  refer this doc: [Install MongoDB](http://docs.mongodb.org/manual/installation/)
+To deploy KA, you must install
+* [Mongodb](http://www.mongodb.org/) [Install MongoDB](http://docs.mongodb.org/manual/installation/)
+* NodeJS >= v0.11.13  Required by Koa
 
-After installing Mongodb, run
+After installing `Mongodb`, run
 ```bash
 # start mongod service, Linux version
 sudo service mongod start

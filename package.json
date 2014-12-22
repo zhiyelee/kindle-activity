@@ -25,6 +25,9 @@
   "bugs": {
     "url": "https://github.com/zhiyelee/kindleNotes/issues"
   },
+  "engines": {
+    "node": ">= 0.11.13"
+  },
   "homepage": "https://github.com/zhiyelee/kindleNotes",
   "dependencies": {
     "casperjs": "^1.1.0-beta3",
@@ -37,7 +40,6 @@
     "mongoose": "^3.8.19",
     "phantomjs": "^1.9.13",
     "q": "^1.1.2",
-    "spooky": "^0.2.5",
     "swig": "^1.4.2",
     "util-merge": "0.0.2"
   }
