@@ -10,6 +10,8 @@ var lastestItem = util.getLatestItem();
 
 lastestItem.then(function (item) {
 
+  // hack for npm-version casperjs: https://github.com/n1k0/casperjs/issues/861
+  process.env.PHANTOMJS_EXECUTABLE = require('phantomjs').path;
   var cmd = 'casperjs lib/casper.js ' + ' --url=' + url;
   if (item && item['uid']) {
     cmd += ' --cid=' + item['uid'];

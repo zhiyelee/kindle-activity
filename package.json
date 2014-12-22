@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/zhiyelee/kindleNotes",
   "dependencies": {
+    "casperjs": "^1.1.0-beta3",
     "co-views": "^0.2.0",
     "js-yaml": "^3.2.3",
     "koa": "^0.13.0",
@@ -34,6 +35,7 @@
     "koa-static": "^1.4.7",
     "mongodb": "^1.4.22",
     "mongoose": "^3.8.19",
+    "phantomjs": "^1.9.13",
     "q": "^1.1.2",
     "spooky": "^0.2.5",
     "swig": "^1.4.2"
