@@ -1,3 +1,9 @@
+# Choose a port
 port: 8094
+# Your profile url
 profileurl: 'https://kindle.amazon.com/profile/zhiyelee/11533613'
+# title of the site
+sitetitle: "Zhiye Li's Kindle Activity"
+# nickname, used as the prefix of the index-page's `<h1>`
+nickname: 'Zhiye Li'
 
