@@ -8,7 +8,7 @@
     "start": "node --harmony --harmony_generators app.js"
   },
   "engines": {
-    "node": "^0.11.12"
+    "node": ">= 0.11.13"
   },
   "repository": {
     "type": "git",
@@ -25,9 +25,6 @@
   "bugs": {
     "url": "https://github.com/zhiyelee/kindleNotes/issues"
   },
-  "engines": {
-    "node": ">= 0.11.13"
-  },
   "homepage": "https://github.com/zhiyelee/kindleNotes",
   "dependencies": {
     "casperjs": "^1.1.0-beta3",
@@ -42,5 +39,11 @@
     "q": "^1.1.2",
     "swig": "^1.4.2",
     "util-merge": "0.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-minify-css": "^0.3.11",
+    "gulp-stylus": "^1.3.4",
+    "nib": "^1.0.4"
   }
 }
