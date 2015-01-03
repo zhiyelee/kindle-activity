@@ -13,7 +13,15 @@
     </article>
         <script>
             var config = {
-                description: '{{item.content | replace("\s+", " ", "g") | replace("(\w{1, 100})", "\1", "g") | escape}}'
+                description: '{{item.content | replace("\s+", " ", "g") | replace("(\w{1, 100})", "\1", "g") | escape}}',
+                networks: {
+                    pinterest: {
+                        enabled: false
+                    },
+                    email: {
+                        enabled: false
+                    }
+                }
             };
 
             var share = new Share('.share-btn', config);

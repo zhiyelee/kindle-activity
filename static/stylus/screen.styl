@@ -71,7 +71,6 @@ body {
     font-size: 14px;
     background: #e5e5e5;
     .share-btn {
-      overflow-x hidden
       width: 92px;
       height: 40px;
       float right
@@ -84,9 +83,17 @@ body {
       }
       .social {
         opacity 0
+        width auto !important
+        ul {
+          width auto !important
+          li {
+            width 45px
+          }
+        }
       }
     }
     .link {
+      margin 0 0 0 2em
       float: left
     }
   }
