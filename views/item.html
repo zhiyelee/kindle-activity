@@ -7,7 +7,15 @@
             {{item.content}}
         </div>
         <footer>
+            <span class="share-btn"></span>
             <a class="link" href="{{item.url}}" target="_blank">View Original</a>
         </footer>
     </article>
+        <script>
+            var config = {
+                description: '{{item.content | replace("\s+", " ", "g") | replace("(\w{1, 100})", "\1", "g") | escape}}'
+            };
+
+            var share = new Share('.share-btn', config);
+        </script>
 {% endblock %}
