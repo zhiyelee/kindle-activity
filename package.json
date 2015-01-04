@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "fetch": "./bin/fetch",
     "start": "node --harmony --harmony_generators app.js"
   },
   "engines": {
