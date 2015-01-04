@@ -34,6 +34,7 @@
     "koa": "^0.13.0",
     "koa-route": "^2.4.0",
     "koa-static": "^1.4.7",
+    "later": "^1.1.6",
     "mongodb": "^1.4.22",
     "mongoose": "^3.8.19",
     "mongoose-auto-increment": "^3.2.0",

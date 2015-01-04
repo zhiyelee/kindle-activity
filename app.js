@@ -1,7 +1,11 @@
 var koa = require('koa');
 var app = koa();
 var router = require('./lib/router');
-var config = require('./lib/util').loadConfig();
+var util = require('./lib/util');
+var config = util.loadConfig();
+
+// setup crontab
+util.crontab();
 
 // x-response-time
 app.use(function *(next) {
