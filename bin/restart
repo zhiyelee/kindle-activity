@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+set -x
+git pull
+npm install
+
+# check running
+pm2 list | grep ka
+
+if [ $? -ne 0 ]; then
+  pm2 start app.js --name ka --node-args="--harmony" --watch
+else
+  pm2 restart ka
+fi
+
