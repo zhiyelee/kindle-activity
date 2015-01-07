@@ -5,6 +5,8 @@ var fs = require('fs');
 var path = require('path');
 
 var dataFile = path.resolve(__dirname, '../data.json');
+var SCRIPT = path.resolve(__dirname, '../lib/casper.js');
+var CASPER = path.resolve(__dirname, '../node_modules/.bin/casperjs');
 
 fetch();
 // fetch and save activity
@@ -12,13 +14,12 @@ function fetch() {
   var config = util.loadConfig();
   var url = config.profileurl;
   var lastestItem = util.getLatestItem();
-  var SCRIPT = path.resolve(__dirname, '../lib/casper.js');
 
   lastestItem.then(function (item) {
 
     // hack for npm-version casperjs: https://github.com/n1k0/casperjs/issues/861
     process.env.PHANTOMJS_EXECUTABLE = require('phantomjs').path;
-    var cmd = 'casperjs ' + SCRIPT + ' --url=' + url;
+    var cmd = CASPER + ' ' + SCRIPT + ' --url=' + url;
     if (item && item['uid']) {
       cmd += ' --cid=' + item['uid'];
       console.log('Now the latest item is: ' + item['uid']);
