@@ -6,4 +6,5 @@ profileurl: 'https://kindle.amazon.com/profile/zhiyelee/11533613'
 sitetitle: "Zhiye Li's Kindle Activity"
 # nickname, used as the prefix of the index-page's `<h1>`
 nickname: 'Zhiye Li'
-
+# every 3hours at 17minute, like 3:17, 6:17 etc.
+crontab: '17 */3 * * *'

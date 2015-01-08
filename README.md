@@ -32,12 +32,21 @@ Edit the `config.yml`, specify the `port` and `profileurl` etc
 
 ### Update the db
 
+#### crontab
+
+The config of the `crontab` can be configured in the `config.yaml`. The crontab can work during the application is running.
+
 ```bash
-# fetch and update the db
-# todo crontab
-node index.js
+# start
+npm start
 ```
 
+#### manual
+
+```bash
+# fetch and update the db
+./bin/fetch
+```
 ### Start the server
 
 ```bash
