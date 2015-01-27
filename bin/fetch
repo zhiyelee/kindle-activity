@@ -9,6 +9,7 @@ var SCRIPT = path.resolve(__dirname, '../lib/casper.js');
 var CASPER = path.resolve(__dirname, '../node_modules/.bin/casperjs');
 
 fetch();
+
 // fetch and save activity
 function fetch() {
   var config = util.loadConfig();
@@ -22,7 +23,7 @@ function fetch() {
     var cmd = CASPER + ' ' + SCRIPT + ' --url=' + url;
     if (item && item['uid']) {
       cmd += ' --cid=' + item['uid'];
-      console.log('Now the latest item is: ' + item['uid']);
+      util.log('Now the latest item is: ' + item['uid']);
     }
 
     fs.writeFileSync(dataFile, '');
