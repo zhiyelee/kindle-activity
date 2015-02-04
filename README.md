@@ -8,10 +8,10 @@ Fetch and Display the kindle Recent Activity from the kindle profile page, like 
 ### Requirements
 
 To deploy KA, you must install
-* [Mongodb](http://www.mongodb.org/) [Install MongoDB](http://docs.mongodb.org/manual/installation/)
+* [MongoDB](http://www.mongodb.org/) [Install MongoDB](http://docs.mongodb.org/manual/installation/)
 * NodeJS >= v0.11.13  Required by Koa
 
-After installing `Mongodb`, run
+After installing `MongoDB`, run
 ```bash
 # start mongod service, Linux version
 sudo service mongod start
