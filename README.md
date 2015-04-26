@@ -55,3 +55,26 @@ npm start
 # OR use pm2
 pm2 start app.js --node-args="--harmony"
 ```
+
+## Nginx Config
+
+In case you need, attacted the nginx config 
+
+```
+server {
+    listen 80;
+    listen [::]:80;
+    server_name k.zhiye.li;
+
+    # your log path
+    access_log /var/log/nginx/k.zhiye.li.nginx.log;
+    error_log /var/log/nginx/k.zhiye.li.nginx.err;
+
+    location / {
+        proxy_pass http://127.0.0.1:8094;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_redirect off;
+    }
+}
+```
