@@ -2,6 +2,10 @@
 
 {% block title %}{{sitetitle}}{% endblock %}
 {% block content %}
+    <form id="s" class="form-inline">
+        <input type="text" class="form-control search" placeholder="npm" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
     <div class="item-list">
         {% for index, item in items %}
             {% set cls = index%2 ? "odd" : "even" %}
