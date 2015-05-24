@@ -12,10 +12,12 @@ gulp.task('stylus', function () {
   gulp.src('static/stylus/screen.styl')
     .pipe($.stylus({error: true, use: [nib()]}))
     .pipe($.minifyCSS())
-    .pipe(gulp.dest('./static/css/'));
+    .pipe(gulp.dest('./static/css/'))
+    .pipe($.livereload());
 });
 
 gulp.task('watch', function () {
+  $.livereload.listen();
   gulp.watch('static/stylus/*.styl', ['stylus']);
 });
 gulp.task('serve', function () {

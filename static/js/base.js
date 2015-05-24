@@ -7,17 +7,25 @@ $(document).ready(function () {
   ndForm.submit(function (e) {
     var key = $('.search').val()
       , ndItemList = $('.item-list');
+
+    e.preventDefault();
+
     $.get('/search', { key: key}, function (data) {
       if (data.length === 0) {
-        ndItemList.html('<div class="center-block no-result"> No items MATCHED. </div>');
+        ndItemList.html('<div class="no-result"><div class="center-block msg"> No items MATCHED. </div></div>');
       } else {
-        ndItemList.html(render(data))
+        ndItemList.html(getHTML(data))
       }
+      $('.page-nav').remove();
     });
-    e.preventDefault();
   });
 
-  function render(items) {
+  /**
+   * render to html
+   * @param items
+   * @returns {string}
+   */
+  function getHTML(items) {
     var html = [];
 
     for (var i = 0; i < items.length; i++) {
