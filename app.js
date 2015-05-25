@@ -3,6 +3,7 @@ var app = koa();
 var router = require('./lib/router');
 var util = require('./lib/util');
 var config = util.loadConfig();
+var bodyParser = require('koa-bodyparser');
 
 // setup crontab
 util.crontab();
@@ -14,6 +15,7 @@ app.use(function *(next) {
   var ms = new Date - start;
   this.set('X-Response-Time', ms + 'ms');
 });
+app.use(bodyParser());
 // logger
 app.use(function *(next) {
   var start = new Date;

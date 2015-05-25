@@ -1,3 +1,4 @@
+@import 'nib';
 body {
   padding-top: 5em;
   padding-bottom: 20px;
@@ -64,6 +65,7 @@ body {
     line-height: 1.2;
     font-size: 21px;
     color: #777;
+    word-break: break-word;
   }
 
   footer {
@@ -108,12 +110,8 @@ body {
 }
 
 
-/*item-list*/
 .item-list {
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
   column-count: 3;
-  column-width: 210px
 
   .item {
     font-size: 18px;
@@ -143,3 +141,14 @@ body {
   min-width: 6em;
 }
 
+.no-result {
+  column-span: all
+  text-align:center;
+  .msg {
+    margin-top: 2em;
+    font-size: 1.5em;
+    line-height: 3em;
+  }
+}
+
+@import 'search'
