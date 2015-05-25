@@ -49,11 +49,20 @@ npm start
 ```
 ### Start the server
 
+#### Production
+
 ```bash
 # start
 npm start
 # OR use pm2
 pm2 start app.js --node-args="--harmony"
+```
+
+#### Development
+
+```bash
+# start server, auto re-compile stylus, livereload
+gulp
 ```
 
 ## Nginx Config
