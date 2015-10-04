@@ -41,7 +41,7 @@
     "moment": "^2.9.0",
     "mongodb": "^1.4.22",
     "mongoose": "^4.0.2",
-    "mongoose-auto-increment": "^4.0.0",
+    "mongoose-auto-increment": "vlapo/mongoose-auto-increment#master",
     "phantomjs": "^1.9.13",
     "q": "^1.1.2",
     "swig": "^1.4.2",
