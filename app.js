@@ -6,7 +6,7 @@ var config = util.loadConfig();
 var bodyParser = require('koa-bodyparser');
 
 // setup crontab
-util.crontab();
+//util.crontab();
 
 // x-response-time
 app.use(function *(next) {
