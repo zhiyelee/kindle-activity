@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-  log = require('../lib/log'),
+  log = require('../lib/log').log,
   activitySchema = require('./activitySchema'),
   lastUpdateSchema = require('./lastUpdateSchema');
 
